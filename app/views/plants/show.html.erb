@@ -2,7 +2,11 @@
 
     <div class="row">
       <div class="col-4">
-        <img src="https://d2r55xnwy6nx47.cloudfront.net/uploads/2020/07/Photosynthesis_2880_Lede.jpg" height="500" class="w-100" style="object-fit: cover;">
+         <% if @plant.photo.attached? %> 
+            <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill %> 
+         <% else %>
+            <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill) %>
+         <% end %>
       </div>
       <div class="col-8">
         <h1> <%= @plant.name %> </h1>

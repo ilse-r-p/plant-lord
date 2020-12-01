@@ -1,20 +1,25 @@
-<div class="container">
-  <div class="container-plant-show">
-    <h2> <%= @plant.name %> </h2>
-    <% if @plant.photo.attached? %> 
-      <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill %> 
-    <% else %>
-      <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill) %>
-    <% end %>
-    <div class="plant-details">
-      <div class="plant-info-avatar">
-        <h3>details</h3>
-        <p><%= @plant.description %></p>
+<div class="container col-8">
+
+    <div class="row">
+      <div class="col-4">
+         <% if @plant.photo.attached? %> 
+            <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill %> 
+         <% else %>
+            <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill) %>
+         <% end %>
       </div>
-      <div class="booking-details">
+      <div class="col-8">
+        <h1> <%= @plant.name %> </h1>
+        <h4>Details of about your plant</h4>
+        <div class="row">
+          <div class="col-6">
+            Type:
+          </div>
+        </div>
+        <p><%= @plant.description %></p>
         <p><%= @plant.price %></p>
-          <%= link_to "Book", new_plant_booking_path(@plant), class:"btn btn-primary" %>
+
+        <%= link_to "Book", new_plant_booking_path(@plant), class:"btn btn-primary" %>
       </div>
     </div>
-  </div>
 </div>

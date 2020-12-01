@@ -1,6 +1,5 @@
 <div class="container col-8">
-
-    <div class="row">
+  <div class="row">
       <div class="col-4">
          <% if @plant.photo.attached? %> 
             <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill %> 
@@ -21,5 +20,5 @@
 
         <%= link_to "Book", new_plant_booking_path(@plant), class:"btn btn-primary" %>
       </div>
-    </div>
+  </div>
 </div>

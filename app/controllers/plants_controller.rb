@@ -14,7 +14,7 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
-    if @plant.save == true
+    if @plant.save
       redirect_to plant_path(@plant)
     else
       render :new # jumps to view "new"
@@ -24,7 +24,7 @@ class PlantsController < ApplicationController
   private
 
   def plant_params
-    params.require(:plant).permit(:description, :name, :price, :address)
+    params.require(:plant).permit(:description, :name, :price, :address, :photo)
   end
 
 end

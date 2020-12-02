@@ -6,18 +6,22 @@
   <div class="row">
       <% @plants.each do |plant| %>
         <div class="col-4">
-          <div class="card">
-            <img class="card-img-top" src="https://media.jardinitis.com/product/bonsai-zelkova-parvifolia-olmo-800x800.jpeg" alt="Plant image cap">
-            <div class="card-body">
-              <h5 class="card-title"><%= plant.name %></h5>
-              <p class="card-text"><%= plant.price %>€</p>
-              <%= link_to "More info", plant_path(plant), class:"btn btn-primary" %>
+          <%= link_to plant_path(plant), class: "plant-card-link" do %>
+            <div class="card-plant mb-3">
+              <% if plant.photo.attached? %>
+                <%= cl_image_tag plant.photo.key, crop: :fit %>
+              <% else %>
+                <%= cl_image_tag("placeholder-plant", crop: :fit) %>
+              <% end %>
+              <div class="card-plant-infos">
+                <div>
+                  <h2><%= plant.name.capitalize %></h2>
+                </div>
+                <h2 class="card-plant-pricing"><%= number_to_currency(plant.price, precision: 0) %></h2>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
-
-
   </div>
-
 </div>

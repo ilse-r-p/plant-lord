@@ -15,7 +15,7 @@
 
           <div class="row mr-0 mt-5 p-0">
             <div class="col-6">
-              <h5><%= number_to_currency(@plant.price) %></h5>
+              <h5><%= number_to_currency(@plant.price) %>/ day</h5>
             </div>
             <div class="col-6">
               <%= link_to "Book now", new_plant_booking_path(@plant), class: "btn-main" %>

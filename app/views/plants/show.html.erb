@@ -1,24 +1,26 @@
 <div class="container col-8">
-  <div class="row">
-      <div class="col-4">
-         <% if @plant.photo.attached? %>
-            <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill %>
+
+  <div class="row mt-3 plant-show-card">
+        <div class="col-6 pl-0">
+          <% if @plant.photo.attached? %>
+            <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill, class: "w-100" %>
          <% else %>
-            <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill) %>
+            <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill, class: "w-100") %>
          <% end %>
-      </div>
-      <div class="col-8">
-        <h1> <%= @plant.name %> </h1>
-        <h4>Details of about your plant</h4>
-        <div class="row">
-          <div class="col-6">
-            Type:
+        </div>
+        <div class="col-6 p-3 mt-3">
+          <h1> <%= @plant.name %> </h1>
+          <p>Details of about your plant:</p>
+          <h4><%= @plant.description %></h4>
+
+          <div class="row mr-0 mt-5 p-0">
+            <div class="col-6">
+              <h5><%= number_to_currency(@plant.price) %></h5>
+            </div>
+            <div class="col-6">
+              <%= link_to "Book now", new_plant_booking_path(@plant), class: "btn-main" %>
+            </div>
           </div>
         </div>
-        <p><%= @plant.description %></p>
-        <p><%= @plant.price %></p>
-
-        <%= link_to "Book", new_plant_booking_path(@plant), class:"btn btn-primary" %>
-      </div>
   </div>
 </div>

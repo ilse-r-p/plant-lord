@@ -10,8 +10,10 @@ require "open-uri"
 
 puts "Destroying seeds"
 
+Booking.destroy_all
 Plant.destroy_all
 User.destroy_all
+
 
 puts "Creating seeds"
 

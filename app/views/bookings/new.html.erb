@@ -14,13 +14,13 @@
               <%= simple_form_for [@plant, @booking] do |f| %>
               <%= f.input :start_date %>
               <%= f.input :end_date %>
+               <%= f.submit "Book",  class:"btn-main btn-block" %>
           </div>
           <div class="row align-items-center justify-content-between">
             <div class="col-6">
               <h5><%= number_to_currency(@plant.price) %> / day</h5>
             </div>
             <div class="col-6">
-              <%= f.submit "Book",  class:"btn-main btn-block" %>
             </div>
           </div>
           <% end %>

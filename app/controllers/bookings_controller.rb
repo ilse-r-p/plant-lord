@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @my_bookings = Booking.where(user: current_user)
+    @requested_bookings = Booking.select{|booking| booking.plant.user == current_user}
+
   end
 
   def show
@@ -25,10 +27,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+      @booking = Booking.find(params[:id])
+      @booking.update(booking_params)
+      redirect_to bookings_path
+  end
+
+
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

@@ -1,3 +1,8 @@
+.index-header {
+  padding: 10px;
+}
+
+
 .plant-card-link {
   text-decoration: none;
   color: black;
@@ -6,9 +11,6 @@
     text-decoration: none;
   }
 }
-
-
-
 
 .card-plant {
   overflow: hidden;
@@ -50,9 +52,3 @@
   position: relative;
 }
 
-.card-plant-infos .card-plant-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}

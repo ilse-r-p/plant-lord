@@ -32,6 +32,9 @@ gem 'devise'
 #ADDED 1 DEC
 gem 'cloudinary', '~> 1.16.0'
 
+#ADDED 2 DEC
+gem 'geocoder'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

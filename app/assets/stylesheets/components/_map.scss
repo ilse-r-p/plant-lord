@@ -1,0 +1,17 @@
+#map {
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 6px;
+  // box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mapboxgl-marker {
+  cursor: pointer;
+}
+
+.info-window-img {
+  margin-top: auto;
+  margin-bottom: auto;
+}

@@ -1,0 +1,10 @@
+<div style="display: flex">
+
+  <div >
+    <h2><%= plant.name %></h2>
+    <p><%= plant.address %></p>
+  </div>
+  <div class="info-window-img">
+    <%= cl_image_tag plant.photo.key, height: 100, width: 100, crop: :fit %>
+  </div>
+</div>

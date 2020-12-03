@@ -3,7 +3,38 @@
 
   <h3 class="my-3"> These are your past and upcoming bookings </h3>
 
-      <% @bookings.each do |booking| %>
+  <% @requested_bookings.each do |booking| %>
+    <div class="card-product mb-3">
+      <img src="https://media.jardinitis.com/product/bonsai-zelkova-parvifolia-olmo-800x800.jpeg" />
+      <div class="card-product-infos w-100">
+        <div class="d-flex justify-content-between align-items-end">
+          <div>
+            <h2><%= booking.plant.name %></h2>
+            <p>Booked from <%= booking.start_date %> until <%= booking.end_date %></p>
+            <p>Status: <strong><%= booking.status.capitalize %></strong></p>
+            <p><strong>Total price:</strong> <%= number_to_currency(booking.total_price) %></p>
+          </div>
+          <div>
+            <% if booking.plant.user == current_user && booking.status == "pending" %>
+            <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}),
+                method: :patch,
+                class:"btn-accept"
+            %>
+            <%= link_to "Decline", booking_path(booking, booking: {status: "declined"}),
+                method: :patch, 
+                class: "btn-decline"
+            %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<h3 class="my-3"> These are your past and upcoming bookings </h3>
+
+      <% @my_bookings.each do |booking| %>
         <div class="card-product mb-3">
           <img src="https://media.jardinitis.com/product/bonsai-zelkova-parvifolia-olmo-800x800.jpeg" />
           <div class="card-product-infos">
@@ -14,6 +45,5 @@
           </div>
         </div>
       <% end %>
-
 
 </div>

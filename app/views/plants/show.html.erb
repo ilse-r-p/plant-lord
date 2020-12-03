@@ -1,26 +1,64 @@
 <div class="container col-8">
-
   <div class="row mt-3 plant-show-card">
         <div class="col-6 pl-0">
           <% if @plant.photo.attached? %>
-            <%= cl_image_tag @plant.photo.key, width: 500, height: 300, crop: :fill, class: "w-100" %>
+            <%= cl_image_tag @plant.photo.key, width: 462, height: 400, crop: :fill, class: "w-100 h-100" %>
          <% else %>
-            <%= cl_image_tag("placeholder-plant", width: 500, height: 300, crop: :fill, class: "w-100") %>
+            <%= cl_image_tag("placeholder-plant", width: 462, height: 400, crop: :fill, class: "w-100 h-100") %>
          <% end %>
         </div>
-        <div class="col-6 p-3 mt-3">
-          <h1> <%= @plant.name %> </h1>
-          <p>Details of about your plant:</p>
-          <h4><%= @plant.description %></h4>
-
+        <div class="d-flex flex-column justify-content-around col-6 p-3 mt-3">
+          <div>
+            <h1> <%= @plant.name %> </h1>
+            <h5>About this plant:</h5>
+            <p><%= @plant.description %></p>
+          </div>
           <div class="row mr-0 mt-5 p-0">
             <div class="col-6">
-              <h5><%= number_to_currency(@plant.price) %></h5>
+              <h5><%= number_to_currency(@plant.price) %>/ day</h5>
             </div>
-            <div class="col-6">
-              <%= link_to "Book now", new_plant_booking_path(@plant), class: "btn-main" %>
+            <div class="col-6 text-right">
+              <% if @plant.user != current_user %>
+                <%= link_to "Book now", new_plant_booking_path(@plant), class: "btn-main" %>
+              <% end %>
             </div>
           </div>
         </div>
   </div>
+  <div class="row mt-3">
+    <div class="col-6 p-0 pr-3">
+      <div class="card text-left align-center">
+        <div class="card-header m-0">
+          <h4>This is my lovely plant, I named it Doris!</h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Owner's description:</h5>
+          <p class="card-text">This plant has brought a lot of joy to my life. I'm happy to share it with the person that decides to book it! Please bare in mind that it needs a lot of care.</p>
+        </div>
+        <div class="card-footertext-muted p-3">
+          * Indoor      * Water every 2 days
+        </div>
+      </div>
+
+    </div>
+    <div class="col-6 p-0">
+      <div class="card">
+        <div class="card-header">
+          <h4>Reviews</h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><strong>Laura</strong>'s review:</h5>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+          <p class="card-text">Amazing plant! Brought a lot of light home.</p>
+        </div>
+        <hr>
+        <div class="card-body">
+          <h5 class="card-title"><strong>Ricky</strong>'s review:</h5>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <p class="card-text">Higher maintenance than I expected. Still enjoyed it at home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

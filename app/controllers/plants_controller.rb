@@ -5,7 +5,9 @@ class PlantsController < ApplicationController
     @markers = @plants.geocoded.map do |plant|
       {
         lat: plant.latitude,
-        lng: plant.longitude
+        lng: plant.longitude,
+        image_url: helpers.asset_url('plant.png'),
+        infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
   end

@@ -35,6 +35,9 @@ gem 'cloudinary', '~> 1.16.0'
 #ADDED 2 DEC
 gem 'geocoder'
 
+#ADDED 3 DEC
+gem 'pg_search', '~> 2.3.5'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

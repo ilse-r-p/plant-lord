@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :plants, only: [:index, :new, :show, :create] do
     resources :bookings, only: [:create, :new] # because we need the plant id to create 
   end
-  resources :bookings, only: [:index, :show, :update] # there we dont need the plant id so we dont nest it
+  resources :bookings, only: [:index, :show, :update] do # there we dont need the plant id so we dont nest it
+    resources :reviews, only: [:create, :new]
+  end
 end

@@ -4,11 +4,14 @@
     <title>PlantLord</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="icon" href="https://res.cloudinary.com/dwl79z56q/image/upload/v1607081588/PlantLord/Plantlord-logo-icon.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= javascript_pack_tag 'application' %>
+
   </head>
 
   <body>
@@ -18,5 +21,7 @@
       <%= yield %>
       </div>
       <%= render 'shared/footer' %>
+      <%= javascript_pack_tag 'application' %>
+
   </body>
 </html>

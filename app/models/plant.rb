@@ -13,8 +13,8 @@ class Plant < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name,
-    against: [ :name],
+    against: [ :name, :description, :address],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true } # <-- tsearch allows partial words, e.g. batm for batman
     }
 end

@@ -48,3 +48,20 @@
     text-decoration: none;
   }
 }
+
+.btn-back {
+  background-color: #02ca92;
+  padding: 16px 32px;
+  border-radius: 60px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.5s;
+  border: none;
+
+  &:hover {
+    background-color: #9CEBD5;
+    color: white;
+    text-decoration: none;
+  }
+}

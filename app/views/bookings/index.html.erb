@@ -24,7 +24,6 @@
                 method: :patch, 
                 class: "btn-decline"
             %>
-
             <% end %>
           </div>
         </div>
@@ -42,6 +41,9 @@
             <p>Booked from <%= booking.start_date %> until <%= booking.end_date %></p>
             <p>Status: <strong><%= booking.status.capitalize %></strong></p>
             <p><strong>Total price:</strong> <%= number_to_currency(booking.total_price) %></p>
+            <%= link_to 'Leave a review', new_booking_review_path(booking),
+                class: "btn-main"
+            %>
           </div>
         </div>
       <% end %>

@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   before_validation :set_total_price
   belongs_to :plant
   belongs_to :user
+  has_one :review
+
 
   validates :start_date, presence: true
   validates :end_date, presence: true

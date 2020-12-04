@@ -35,18 +35,9 @@
       <% @plants.each do |plant| %>
         <div class="col-4">
           <%= link_to plant_path(plant), class: "plant-card-link" do %>
-            <div class="card-plant mb-3">
-              <% if plant.photo.attached? %>
-                <%= cl_image_tag plant.photo.key, crop: :fit %>
-              <% else %>
-                <%= cl_image_tag("placeholder-plant", crop: :fit) %>
-              <% end %>
-              <div class="card-plant-infos">
-                <div>
-                  <h2><%= plant.name.capitalize %></h2>
-                </div>
-                <h2 class="card-plant-pricing"><%= number_to_currency(plant.price, precision: 0) %></h2>
-              </div>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path plant.photo.key, crop: :fit %>)">
+              <%= plant.name.capitalize %>
+              <h2 class="card-plant-pricing"><%= number_to_currency(plant.price, precision: 0) %></h2>
             </div>
           <% end %>
         </div>

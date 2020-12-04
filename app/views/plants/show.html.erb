@@ -1,5 +1,5 @@
-<div class="container col-8">
-  <div class="row mt-3 plant-show-card">
+<div class="container col-8 pt-3">
+  <div class="row plant-show-card">
         <div class="col-6 pl-0">
           <% if @plant.photo.attached? %>
             <%= cl_image_tag @plant.photo.key, width: 462, height: 400, crop: :fill, class: "w-100 h-100" %>
@@ -11,7 +11,11 @@
           <div>
             <h1> <%= @plant.name %> </h1>
             <h5>About this plant:</h5>
-            <p><%= @plant.description %></p>
+            <div class="container mt-3 pl-0">
+              <p><i class="fas fa-tint icon"></i> Every <strong>3</strong> days</p>
+              <p><i class="fas fa-sun icon"></i> Outdoor </p>
+              <p><i class="fas fa-ruler icon"></i></i> 30 cms</p>
+            </div>
           </div>
           <div class="row mr-0 mt-5 p-0">
             <div class="col-6">
@@ -29,14 +33,10 @@
     <div class="col-6 p-0 pr-3">
       <div class="card text-left align-center">
         <div class="card-header m-0">
-          <h4>This is my lovely plant, I named it Doris!</h4>
+          <h4>Description</h4>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Owner's description:</h5>
-          <p class="card-text">This plant has brought a lot of joy to my life. I'm happy to share it with the person that decides to book it! Please bare in mind that it needs a lot of care.</p>
-        </div>
-        <div class="card-footertext-muted p-3">
-          * Indoor      * Water every 2 days
+          <p class="card-text"><%= @plant.description %></p>
         </div>
       </div>
 
@@ -47,14 +47,14 @@
           <h4>Reviews</h4>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><strong>Laura</strong>'s review:</h5>
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+          <h5 class="card-title"><strong>Ilse</strong>'s review:</h5>
+          <i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="far fa-star icon"></i>
           <p class="card-text">Amazing plant! Brought a lot of light home.</p>
         </div>
         <hr>
         <div class="card-body">
           <h5 class="card-title"><strong>Ricky</strong>'s review:</h5>
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="far fa-star icon"></i><i class="far fa-star icon"></i>
           <p class="card-text">Higher maintenance than I expected. Still enjoyed it at home.</p>
         </div>
       </div>

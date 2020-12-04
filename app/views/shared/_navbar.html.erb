@@ -1,13 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container">
+  <div class="container pt-1 pb-2 mb-1">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dwl79z56q/image/upload/v1606907392/PlantLord/Plantlord-logo.png" %>
+      <%= image_tag "https://res.cloudinary.com/dwl79z56q/image/upload/v1607076721/PlantLord/Plantlord-logo.png" %>
       <% end %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
@@ -29,6 +29,6 @@
           </li>
         <% end %>
       </ul>
-    </div> 
+    </div>
   </div>
 </div>

@@ -5,6 +5,10 @@
     <p><%= plant.address %></p>
   </div>
   <div class="info-window-img">
-    <%= cl_image_tag plant.photo.key, height: 100, width: 100, crop: :fit %>
+    <% if plant.photo.attached? %>
+                <%= cl_image_tag plant.photo.key, height: 100, width: 100, crop: :fit %>
+    <% else %>
+                <%= cl_image_tag("placeholder-plant", height: 100, width: 100, crop: :fit) %>
+              <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    query_result
 
     @markers = @plants.geocoded.map do |plant|
       {
@@ -37,4 +37,11 @@ class PlantsController < ApplicationController
     params.require(:plant).permit(:description, :name, :price, :address, :photo)
   end
 
+  def query_result
+    if params[:query].present?
+      @plants = Plant.search_by_name(params[:query])
+    else
+      @plants = Plant.all
+    end
+  end
 end

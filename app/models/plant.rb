@@ -11,4 +11,11 @@ class Plant < ApplicationRecord
   validates :description, presence: true
   validates :address, presence: true
   validates :price, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :name, :description, :address],
+    using: {
+      tsearch: { prefix: true } # <-- tsearch allows partial words, e.g. batm for batman
+    }
 end

@@ -7,6 +7,11 @@
 
 .search-container {
   margin-top: 50px;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .search-bar {
@@ -14,9 +19,10 @@
   width: 500px;
 }
 
-.form-control:focus {
+.search-bar .form-control:focus {
   opacity: 1;
-  // border: solid black 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);;
+  border: rgb(216, 216, 216) 1px solid;
 }
 
 .btn-main.btn-search {

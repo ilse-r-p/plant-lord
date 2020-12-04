@@ -12,8 +12,8 @@
           <div>
             <h1> <%= @plant.name %> </h1>
               <%= simple_form_for [@plant, @booking] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
+              <%= f.input :start_date, as: :string, input_html: {id: "start_date"} %>
+              <%= f.input :end_date, as: :string, input_html: {id: "end_date"} %>
                <%= f.submit "Book",  class:"btn-main btn-block" %>
           </div>
           <div class="row align-items-center justify-content-between">

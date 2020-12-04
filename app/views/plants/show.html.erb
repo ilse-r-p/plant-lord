@@ -53,11 +53,11 @@
                 <%= review.booking.user.email.split("@")[0].capitalize %></strong>'s review:
             </h5>
             <% review.rating.times do%>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star icon"></i>
             <% end %>
 
             <% (5 - review.rating).times do %>
-              <i class="far fa-star"></i>
+              <i class="far fa-star icon"></i>
             <% end %>
             <p class="card-text"> <%= review.content.capitalize %></p>
           </div>

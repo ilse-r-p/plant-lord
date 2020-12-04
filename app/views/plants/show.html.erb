@@ -1,4 +1,4 @@
-<div class="container col-8 pt-3">
+<div class="container col-9 pt-3">
   <div class="row plant-show-card">
         <div class="col-6 pl-0">
           <% if @plant.photo.attached? %>
@@ -46,17 +46,23 @@
         <div class="card-header">
           <h4>Reviews</h4>
         </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong>Ilse</strong>'s review:</h5>
-          <i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="far fa-star icon"></i>
-          <p class="card-text">Amazing plant! Brought a lot of light home.</p>
-        </div>
-        <hr>
-        <div class="card-body">
-          <h5 class="card-title"><strong>Ricky</strong>'s review:</h5>
-          <i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="fas fa-star icon"></i><i class="far fa-star icon"></i><i class="far fa-star icon"></i>
-          <p class="card-text">Higher maintenance than I expected. Still enjoyed it at home.</p>
-        </div>
+        <% @plant.reviews.each do |review| %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>
+                <%= review.booking.user.email.split("@")[0].capitalize %></strong>'s review:
+            </h5>
+            <% review.rating.times do%>
+              <i class="fas fa-star"></i>
+            <% end %>
+
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+            <p class="card-text"> <%= review.content.capitalize %></p>
+          </div>
+          <hr>
+        <% end %>
       </div>
     </div>
   </div>

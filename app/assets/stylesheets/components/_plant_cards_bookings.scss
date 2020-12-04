@@ -30,3 +30,30 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: 0.5s;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.card-plant-pricing {
+  position: absolute;
+  bottom: 0;
+  right: 8%;
+}
